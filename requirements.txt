@@ -1,0 +1,8 @@
+numpy
+pandas
+scipy
+statsmodels
+nilearn
+nibabel
+openpyxl
+python-docx

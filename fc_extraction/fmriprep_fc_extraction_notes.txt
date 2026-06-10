@@ -1,0 +1,18 @@
+fMRIPrep-only FC extraction notes
+
+This folder is intentionally limited to fMRIPrep-derived resting-state fMRI inputs.
+
+Required inputs:
+1. fMRIPrep desc-preproc_bold.nii or desc-preproc_bold.nii.gz files.
+2. Matched fMRIPrep desc-confounds_timeseries.tsv files.
+3. Atlas files supplied through command-line arguments.
+
+The upload version skips scans without matched fMRIPrep confounds.
+
+Recommended command pattern:
+
+python 01_extract_fc_fmriprep_batch.py --data_roots "<fmriprep_derivatives_root>" --bna_img "<BNA246_atlas.nii.gz>" --bna_labels "<BNA246_labels.xlsx>" --skip_aal
+
+python 02_extract_fc_fmriprep_hc.py --data_roots "<hc_fmriprep_derivatives_root>" --bna_img "<BNA246_atlas.nii.gz>" --bna_labels "<BNA246_labels.xlsx>" --skip_aal
+
+The scripts perform post-fMRIPrep ROI time-series extraction and FC matrix construction. They do not perform image preprocessing outside fMRIPrep.
